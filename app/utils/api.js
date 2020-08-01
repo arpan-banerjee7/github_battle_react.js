@@ -15,6 +15,7 @@ function getProfile(username) {
     .then((res) => res.json())
     .then((profile) => {
       if (profile.message) {
+        console.log(getErrorMsg(profile.message, username));
         throw new Error(getErrorMsg(profile.message, username));
       }
 
