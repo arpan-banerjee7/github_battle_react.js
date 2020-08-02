@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import Loading from "./Loading";
 import Tooltip from "./Tooltip";
+import WithHover from "./withHover";
 function LangaugesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
 
@@ -36,6 +37,7 @@ LangaugesNav.propTypes = {
 };
 
 function ReposGrid({ repos }) {
+  const ToolTipWithHover = WithHover(Tooltip);
   return (
     <ul className="grid space-around">
       {repos.map((repo, index) => {
@@ -59,10 +61,10 @@ function ReposGrid({ repos }) {
             >
               <ul className="card-list">
                 <li>
-                  <Tooltip text="Github username">
+                  <ToolTipWithHover text="Github username">
                     <FaUser color="rgb(255, 191, 116)" size={22} />
                     <a href={`https://github.com/${login}`}>{login}</a>
-                  </Tooltip>
+                  </ToolTipWithHover>
                 </li>
                 <li>
                   <FaStar color="rgb(255, 215, 0)" size={22} />
