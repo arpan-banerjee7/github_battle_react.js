@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "./Card";
 import { battle } from "../utils/api";
 import {
   FaCompass,
@@ -9,99 +8,49 @@ import {
   FaCode,
   FaUser,
 } from "react-icons/fa";
+import Card from "./Card";
 import PropTypes from "prop-types";
 import Loading from "./Loading";
+import Tooltip from "./Tooltip";
 
-const styles = {
-  container: {
-    position: "relative",
-    display: "flex",
-  },
-  tooltip: {
-    boxSizing: "border-box",
-    position: "absolute",
-    width: "160px",
-    bottom: "100%",
-    left: "50%",
-    marginLeft: "-80px",
-    borderRadius: "3px",
-    backgroundColor: "hsla(0, 0%, 20%, 0.9)",
-    padding: "7px",
-    marginBottom: "5px",
-    color: "#fff",
-    textAlign: "center",
-    fontSize: "14px",
-  },
-};
-
-class ProfileList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hoveringLocation: false,
-      hoveringCompany: false,
-    };
-  }
-  mouseOver(id) {
-    console.log(this);
-    this.setState({
-      [id]: true,
-    });
-  }
-
-  mouseOut(id) {
-    this.setState({
-      [id]: false,
-    });
-  }
-  render() {
-    const { profile } = this.props;
-    const { hoveringCompany, hoveringLocation } = this.state;
-
-    return (
-      <ul className="card-list">
+function ProfileList({ profile }) {
+  return (
+    <ul className="card-list">
+      <li>
+        <FaUser color="rgb(239, 115, 115)" size={22} />
+        {profile.name}
+      </li>
+      {profile.location && (
         <li>
-          <FaUser color="rgb(239, 115, 115)" size={22} />
-          {profile.name}
-        </li>
-        {profile.location && (
-          <li
-            style={styles.container}
-            onMouseOver={() => this.mouseOver("hoveringLocation")}
-            onMouseLeave={() => this.mouseOut("hoveringLocation")}
-          >
-            {hoveringLocation === true && (
-              <div style={styles.tooltip}>User's Location</div>
-            )}
+          <Tooltip text="User's location">
             <FaCompass color="rgb(144, 115, 255)" size={22} />
             {profile.location}
-          </li>
-        )}
-        {profile.company && (
-          <li
-            style={styles.container}
-            onMouseOver={() => this.mouseOver("hoveringCompany")}
-            onMouseLeave={() => this.mouseOut("hoveringCompany")}
-          >
-            {hoveringCompany === true && (
-              <div style={styles.tooltip}>User's Company</div>
-            )}
+          </Tooltip>
+        </li>
+      )}
+      {profile.company && (
+        <li>
+          <Tooltip text="User's company">
             <FaBriefcase color="#795548" size={22} />
             {profile.company}
-          </li>
-        )}
-        <li>
-          <FaUsers color="rgb(129, 195, 245)" size={22} />
-          {profile.followers.toLocaleString()} followers
+          </Tooltip>
         </li>
-        <li>
-          <FaUserFriends color="rgb(64, 183, 95)" size={22} />
-          {profile.following.toLocaleString()} following
-        </li>
-      </ul>
-    );
-  }
+      )}
+      <li>
+        <FaUsers color="rgb(129, 195, 245)" size={22} />
+        {profile.followers.toLocaleString()} followers
+      </li>
+      <li>
+        <FaUserFriends color="rgb(64, 183, 95)" size={22} />
+        {profile.following.toLocaleString()} following
+      </li>
+    </ul>
+  );
 }
+
+ProfileList.propTypes = {
+  profile: PropTypes.object.isRequired,
+};
 
 export default class Results extends React.Component {
   constructor(props) {
@@ -137,7 +86,7 @@ export default class Results extends React.Component {
     const { winner, loser, error, loading } = this.state;
 
     if (loading === true) {
-      return <Loading />;
+      return <Loading text="Battling" />;
     }
 
     if (error) {
@@ -175,7 +124,7 @@ export default class Results extends React.Component {
 }
 
 Results.propTypes = {
-  playerTwo: PropTypes.string.isRequired,
   playerOne: PropTypes.string.isRequired,
+  playerTwo: PropTypes.string.isRequired,
   onReset: PropTypes.func.isRequired,
 };
