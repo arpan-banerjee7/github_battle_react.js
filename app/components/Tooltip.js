@@ -38,4 +38,4 @@ Tooltip.propTypes = {
   hovering: PropTypes.bool.isRequired,
 };
 
-export default Tooltip;
+export default withHover(Tooltip);
