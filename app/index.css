@@ -240,3 +240,8 @@ li {
   font-size: 20px;
   margin: 50px 0;
 }
+.dark {
+  color: #dadada;
+  background: #1c2022;
+  min-height: 100%;
+}
