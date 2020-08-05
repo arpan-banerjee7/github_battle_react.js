@@ -7,3 +7,18 @@ Lists popular repositories , battle between two users .
 - List favorite profiles
 - You can battle with any user on Github and compare yourself.
 - Dark theme
+
+## Live demo- https://affectionate-kirch-e5d424.netlify.app/ 
+
+*Here are the snapshots of the app-*
+
+![](app_image1.JPG)
+
+![](app_iamge5.JPG)
+
+![](app_imgae2.JPG)
+
+![](app_image3.JPG)
+
+![](app_image4.JPG)
+
