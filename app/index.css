@@ -108,14 +108,18 @@ li {
 }
 .card-list-search {
   margin: auto;
-  width: 50%;
+  width: 60%;
   font-size: 20px;
-  padding: 20px;
+  padding: 10px;
 }
 .card-list-search li {
   display: flex;
   align-items: center;
   margin: 10px;
+}
+
+.card-search svg {
+  margin-right: 10px;
 }
 .card-list li {
   display: flex;

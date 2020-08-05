@@ -33,6 +33,9 @@ class PlayerSearch extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.onSubmit(this.state.username);
+    this.setState({
+      username: "",
+    });
     console.log(this.state.username);
   }
   handleChange(event) {
@@ -154,6 +157,14 @@ export default class Search extends React.Component {
                             <Tooltip text="User's company">
                               <FaBriefcase color="#795548" size={22} />
                               {profile.company}
+                            </Tooltip>
+                          </li>
+                        )}
+                        {profile.public_repos && (
+                          <li>
+                            <Tooltip text="Public Repos">
+                              <FaCode color="#795548" size={22} />
+                              {profile.public_repos} repositories
                             </Tooltip>
                           </li>
                         )}

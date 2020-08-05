@@ -52,7 +52,7 @@ function getUserData(player) {
   return Promise.all([getProfile(player), getRepos(player)]).then(
     ([profile, repos]) => ({
       profile,
-      score: calculateScore(profile.followers, repos),
+      score: getStarCount(repos),
     })
   );
 }
