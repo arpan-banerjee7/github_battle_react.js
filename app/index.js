@@ -4,6 +4,7 @@ import "./index.css";
 import Loading from "./components/Loading";
 import { ThemeProvider } from "./contexts/theme";
 import Nav from "./components/Nav";
+import Search from "./components/Search";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const Popular = React.lazy(() => import("./components/Popular"));
@@ -33,6 +34,7 @@ class App extends React.Component {
                 <Switch>
                   <Route exact path="/" component={Popular} />
                   <Route exact path="/battle" component={Battle} />
+                  <Route path="/search" component={Search} />
                   <Route path="/battle/results" component={Results} />
                   <Route render={() => <h1>404</h1>} />
                 </Switch>

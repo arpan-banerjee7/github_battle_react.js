@@ -31,6 +31,15 @@ export default function Nav() {
                 Battle
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/search"
+                activeStyle={activeStyle}
+                className="nav-link"
+              >
+                Search
+              </NavLink>
+            </li>
           </ul>
           <button
             style={{ fontSize: 30 }}
