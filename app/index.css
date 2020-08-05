@@ -85,7 +85,13 @@ li {
   margin: 0 auto;
   display: block;
 }
-
+.avatar-search {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
 .center-text {
   text-align: center;
 }
@@ -100,7 +106,17 @@ li {
   margin: 20px 0;
   font-size: 20px;
 }
-
+.card-list-search {
+  margin: auto;
+  width: 50%;
+  font-size: 20px;
+  padding: 20px;
+}
+.card-list-search li {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
 .card-list li {
   display: flex;
   align-items: center;
@@ -126,7 +142,11 @@ li {
   width: 250px;
   padding: 20px;
 }
-
+.card-search {
+  margin: 10px;
+  width: 100%;
+  padding: 20px;
+}
 .card a {
   text-decoration: none;
 }

@@ -57,6 +57,10 @@ function getUserData(player) {
   );
 }
 
+export function getSingleUser(user) {
+  return Promise.all([getProfile(user), getRepos(user)]);
+}
+
 function sortPlayers(players) {
   return players.sort((a, b) => b.score - a.score);
 }

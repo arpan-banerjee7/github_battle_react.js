@@ -15,12 +15,12 @@ import Tooltip from "./Tooltip";
 import queryString from "query-string";
 import { Link } from "react-router-dom";
 
-function ProfileList({ profile }) {
+export function ProfileList({ profile }) {
   return (
     <ul className="card-list">
       <li>
         <FaUser color="rgb(239, 115, 115)" size={22} />
-        {profile.name}
+        {profile.login}
       </li>
       {profile.location && (
         <li>
@@ -105,7 +105,7 @@ export default class Results extends React.Component {
             subheader={`Score: ${winner.score.toLocaleString()}`}
             avatar={winner.profile.avatar_url}
             href={winner.profile.html_url}
-            name={winner.profile.login}
+            name={winner.profile.name}
           >
             <ProfileList profile={winner.profile} />
           </Card>
@@ -113,7 +113,7 @@ export default class Results extends React.Component {
             header={winner.score === loser.score ? "Tie" : "Loser"}
             subheader={`Score: ${loser.score.toLocaleString()}`}
             avatar={loser.profile.avatar_url}
-            name={loser.profile.login}
+            name={loser.profile.name}
             href={loser.profile.html_url}
           >
             <ProfileList profile={loser.profile} />
