@@ -151,7 +151,11 @@ li {
   width: 100%;
   padding: 20px;
 }
-
+.card-repo {
+  margin: 10px;
+  width: 100%;
+  padding: 20px;
+}
 .card a {
   text-decoration: none;
 }
@@ -300,3 +304,9 @@ li {
   background: #292929;
   color: #4a4a4a;
 }
+.small {
+  font-size: 20px;
+  color: rgb(214, 68, 68);
+  font-weight: 400;
+}
+/***********************************/

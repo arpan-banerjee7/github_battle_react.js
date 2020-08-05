@@ -2,6 +2,7 @@ import React from "react";
 import { getSingleUser } from "../utils/api";
 import { ThemeConsumer } from "../contexts/theme";
 import Loading from "./Loading";
+
 import {
   FaStar,
   FaCodeBranch,
@@ -39,14 +40,13 @@ function ReposGrid({ repos }) {
           <ThemeConsumer>
             {({ theme }) => (
               <li key={index}>
-                <div className={`card bg-${theme}`}>
-                  <h4 className="header-lg center-text">{full_name}</h4>
-                  {description && <p className="center-text">{description}</p>}
+                <div className={`card-repo bg-${theme}`}>
                   <h2 className="center-text">
                     <a className="link" href={svn_url}>
                       {full_name}
                     </a>
                   </h2>
+                  {description && <p className="center-text">{description}</p>}
                   <ul className="card-list">
                     <li>
                       <Tooltip text="Stars">
@@ -164,6 +164,9 @@ export default class Search extends React.Component {
           loading: false,
         });
       });
+    this.setState({
+      userName: null,
+    });
   }
   handleReset() {
     this.setState({
@@ -198,13 +201,12 @@ export default class Search extends React.Component {
     return (
       <React.Fragment>
         <div style={styles.center}>
-          {userName === null && (
+          <div>
             <PlayerSearch
               label="User Name"
               onSubmit={(player) => this.handleSubmit(player)}
             />
-          )}
-
+          </div>
           <div>
             {profile && repos && (
               <ThemeConsumer>
@@ -266,6 +268,7 @@ export default class Search extends React.Component {
                         </ul>
                       </div>
                     </div>
+
                     {/* <ReposGrid repos={repos} /> */}
                   </React.Fragment>
                 )}
