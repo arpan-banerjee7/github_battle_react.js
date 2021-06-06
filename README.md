@@ -8,7 +8,7 @@ Lists popular repositories , battle between two users .
 - You can battle with any user on Github and compare yourself.
 - Dark theme
 
-## Live demo- github-battle-reactjs.netlify.app/
+## Live demo- https://github-battle-reactjs.netlify.app/
 
 *Here are the snapshots of the app-*
 
